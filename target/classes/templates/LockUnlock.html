@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body class="align-items-center" style="width: 100%">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div   class="p-3 d-flex flex-column justify-self-center align-items-center">
+        <button id="locked" type="button" class="btn btn-primary btn-lg">Locked</button>
+    </div>
+
+    <div   class="p-3 d-flex flex-column justify-self-center align-items-center">
+        <button hidden id="unlock" type="button" class="btn btn-primary btn-lg">Door Unlocked</button>
+    </div>
+</nav>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script >
+/*    $.fn.keepAlive({url: 'http://localhost:8081/status', timer: '10'},
+        function(response) {
+        console.log(response);
+    });//*/
+
+(function ajaxRequest() {
+    $.ajax('/status', {
+        type: 'get',
+        data: {
+        },
+    })
+        .done(function (data) {
+            if(data.toString()=== "true"){
+                console.log('equal');
+                $('#locked').prop('hidden', true);
+                $('#unlock').prop('hidden', false);
+            }else{
+                $('#locked').prop('hidden', false);
+                $('#unlock').prop('hidden', true);
+            }
+            console.log(data);
+            // Do whatever you want with the data.
+        })
+        .always(function (data) {
+            // We are starting a new timer only AFTER COMPLETING the previous request.
+            setTimeout(ajaxRequest, 10);
+        });
+})();
+</script>
+
+</body>
+</html>

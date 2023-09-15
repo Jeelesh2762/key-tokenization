@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lock Install</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/hotel">Hotel Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hotel/user">User Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/hotel/lockinstall">Lock Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hotel/roomallocate">Allocate Room</a>
+                </li>
+            </ul>
+        </div>
+        
+        <img width="15%" src="https://1000logos.net/wp-content/uploads/2020/01/Radisson-Logo-1909.png">
+    </div>
+</nav>
+
+<form class="p-3 d-flex flex-column justify-self-center align-items-center">
+    <h4 class="d-flex justify-content-center">LOCK REGISTRATION</h4>
+    <div class="w-50 mb-3">
+        <label for="id" class="form-label">Room ID/ LIFT ID</label>
+        <input type="name" class="form-control" id="id">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="dvc_id" class="form-label">Device ID</label>
+        <input type="name" class="form-control" id="dvc_id">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="htl_id" class="form-label">Hotel ID</label>
+        <input type="name" class="form-control" id="htl_id">
+    </div>
+    <button type="submit" class="w-10 btn btn-primary">Submit</button>
+</form>
+
+<table style="margin-top: 2rem" align="center" class="w-75 justify-self-center table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Hotel Name</th>
+        <th scope="col">TRID</th>
+        <th scope="col">Place</th>
+        <th scope="col">Device ID</th>
+        <th scope="col">TUR</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Radisson-London</td>
+        <td>562678</td>
+        <td>Room-101</td>
+        <td>R-255</td>
+        <td>DM4Mee9a5a7b9e33a1e8</td>
+    </tr>
+    <tr>
+        <td>Radisson-London</td>
+        <td>562678</td>
+        <td>Room-102</td>
+        <td>R-105</td>
+        <td>DM4Me56405d20aabcf24</td>
+    </tr>
+    <tr>
+        <td>Radisson-London</td>
+        <td>562678</td>
+        <td>Lift-South</td>
+        <td>L-105</td>
+        <td>---</td>
+    </tr>
+    <tr>
+        <td>Radisson-London</td>
+        <td>562678</td>
+        <td>Lift-North</td>
+        <td>L-260</td>
+        <td>DM4M46b88313150cc61f</td>
+    </tr>
+    <tr>
+        <td>Radisson-London</td>
+        <td>562678</td>
+        <td>Room-110</td>
+        <td>R-330</td>
+        <td>---</td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>

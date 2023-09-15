@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+<script>var flag = 1;</script>
+<div class="d-flex flex-column justify-self-center align-items-center w-100">
+
+    <button style="background: transparent; border: none" onclick="Locking()" id="btn">
+        <img id="img" width="40%" src="../static/images/locked_upd.PNG" th:src="@{images/locked_upd.PNG}"/>
+    </button>
+<!--  <button>-->
+<!--      <img id="green" width="40%" src="../static/images/locked_upd.PNG" th:src="@{images/locked_upd.PNG}">-->
+<!--  </button>-->
+
+
+</div>
+
+<script>
+    function Locking() {
+        if(flag == 0) {
+            document.getElementById("img").src = "https://cdn4.iconfinder.com/data/icons/web-ui-color/128/Lock_red-512.png"
+
+            flag = 1;
+        } else {
+            document.getElementById("img").src = "https://static-00.iconduck.com/assets.00/unlock-icon-2048x2048-u0zm3geq.png"
+            flag = 0;
+        }
+    }
+
+</script>
+
+</body>
+</html>

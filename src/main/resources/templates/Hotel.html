@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body class="align-items-center" style="width: 100%">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/hotel">Hotel Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hotel/user">User Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hotel/lockinstall">Lock Install</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hotel/roomallocate">Allocate Room</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<form id="hotel_form" onsubmit="callREST()" class="p-3 d-flex flex-column justify-self-center align-items-center">
+    <h4>Hotel Registration</h4>
+    <div class="w-50 mb-3">
+        <label for="InputName" class="form-label">Hotel Name</label>
+        <input name="name" type="name" class="form-control" id="InputName">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="addr" class="form-label">Address</label>
+        <textarea name="addr" class="form-control" id="addr"></textarea>
+    </div>
+    <div class="w-50 mb-3">
+        <label for="postalCode" class="form-label">Postal Code</label>
+        <input name="postal" type="tel" class="form-control" id="postalCode">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <textarea name="desc" class="form-control" id="desc"></textarea>
+    </div>
+    <div class=" w-50 mb-3">
+        <label for="website" class="form-label">Official Website</label>
+        <input name="web" type="url" class="form-control" id="website">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input name="phone" type="tel" class="form-control" id="phone">
+    </div>
+    <div class="w-50 mb-3">
+        <label for="email" class="form-label">Email ID</label>
+        <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="w-10 btn btn-primary" >Submit</button>
+</form>
+
+<script>
+    // function setAction(form) {
+    //     alert("call");
+    //     const url = 'http://localhost:8080/api/hotel';
+    //     const andSign = '&';
+    //     const nameParam = '?hotel_NAME='+form.name.value;
+    //     const addrParam = 'address='+form.addr.value;
+    //     const postalParam = 'postal_CD='+form.postal.value;
+    //     const descParam = 'description='+form.desc.value;
+    //     const webParam = 'website='+form.web.value;
+    //     const phoneParam = 'phone_NUMBER='+form.phone.value;
+    //     const emailParam = 'email_ADDR='+form.email.value;
+    //     const newUrl = url+nameParam+andSign+addrParam+andSign+postalParam+andSign+descParam+andSign+webParam+andSign+phoneParam+andSign+emailParam;
+    //
+    //     fetch(
+    //         newUrl,
+    //         {
+    //             headers: { "Content-Type": "application/json" },
+    //             method: "POST",
+    //             body:"[17:27] Darji, Jeeleshkumar\n" +
+    //                 "\n" +
+    //                 "{\n" +
+    //                 "\n" +
+    //                 "\t\"hotel_NAME\" : \"Haytt\",\n" +
+    //                 "\n" +
+    //                 "\t\"address\" : \"Ahmedabad\",\n" +
+    //                 "\n" +
+    //                 "\t\"postal_CD\" : \"384315\",\n" +
+    //                 "\n" +
+    //                 "\t\"description\" : \"Best Hotel\",\n" +
+    //                 "\n" +
+    //                 "\t\"crte_DT\" : \"2020-07-10\",\n" +
+    //                 "\n" +
+    //                 "\t\"stat_CD\" : \"Locked\",\n" +
+    //                 "\n" +
+    //                 "\t\"website\" : \"haytt.com\",\n" +
+    //                 "\n" +
+    //                 "\t\"phone_NUMBER\" : \"090840218401\",\n" +
+    //                 "\n" +
+    //                 "\t\"email_ADDR\" : \"haytt.gmail.com\"\n" +
+    //                 "\n" +
+    //                 "}"
+    //         }
+    //     )
+    //         .then(data => data.json())
+    //         .then((json) => {
+    //             alert(JSON.stringify(json));
+    //             document.getElementById("form").reset();
+    //         });
+    //
+    //     alert("call 1");
+    //     return false;
+    // }
+
+
+    // function callREST(form) {
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.setRequestHeader('Content-type', 'application/json');
+    //     xhttp.onreadystatechange = function() {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             alert("Done");
+    //         }
+    //     };
+    //     xhttp.open("POST", "http://localhost:8080/api/hotel", true);
+    //     xhttp.send(JSON.stringify(form));
+
+        // var data = new FormData();
+        // data.append('hotel_NAME','Haytt')
+        // data.append('address','Ahmedabad')
+        // data.append('postal_CD', '384315')
+        // data.append('description','Best')
+        // data.append('website','haytt.com')
+        // data.append('phone_NUMBER','090840218401')
+        // data.append('email_ADDR','haytt.gmail.com')
+        //
+        // var http = new XMLHttpRequest();
+        // var url = 'http://localhost:8080/api/hotel';
+        // // var params = JSON.stringify(form);
+        // http.open('POST', url, true);
+        //
+        // //Send the proper header information along with the request
+        // http.setRequestHeader('Content-type', 'application/json');
+        //
+        // http.onreadystatechange = function() {//Call a function when the state changes.
+        //     if(http.readyState == 4 && http.status == 200) {
+        //         alert(http.responseText);
+        //     }
+        // }
+        // http.send(data);
+
+    // }
+
+
+    function callREST() {
+        var formData = JSON.stringify($("#hotel_form").serializeArray());
+        $.ajax({
+            type: "POST",
+            url: "https://localhost:8080/api/hotel",
+            data: formData,
+            success: function(){},
+            dataType: "json",
+            contentType : "application/json"
+        });
+    }
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
